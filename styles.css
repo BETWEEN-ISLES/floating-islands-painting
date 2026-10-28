@@ -15,3 +15,68 @@
 .flyers{position:absolute;inset:0;z-index:6;pointer-events:none}.flyer{position:absolute;left:-16vw;width:clamp(105px,11vw,190px);height:clamp(105px,11vw,190px);object-fit:contain;filter:drop-shadow(0 10px 8px rgba(38,74,85,.2));animation:flyAcross var(--duration) linear infinite;will-change:transform}.flyer.fresh{filter:drop-shadow(0 0 18px rgba(255,241,154,.95)) drop-shadow(0 10px 8px rgba(38,74,85,.2))}@keyframes flyAcross{0%{left:-16vw;transform:translateY(0) rotate(-3deg) scale(var(--scale))}25%{transform:translateY(-7vh) rotate(2deg) scale(var(--scale))}50%{transform:translateY(3vh) rotate(-2deg) scale(var(--scale))}75%{transform:translateY(-5vh) rotate(3deg) scale(var(--scale))}100%{left:110vw;transform:translateY(0) rotate(-2deg) scale(var(--scale))}}.waiting-card{position:absolute;z-index:8;left:50%;bottom:6vh;transform:translateX(-50%);display:flex;align-items:center;gap:14px;color:white;background:rgba(25,77,92,.23);border:1px solid rgba(255,255,255,.4);border-radius:17px;padding:13px 20px;backdrop-filter:blur(10px);transition:.5s}.waiting-card.hidden{opacity:0;transform:translate(-50%,30px)}.waiting-card>span{font-size:22px;color:#ffe79a}.waiting-card p{margin:0}.waiting-card strong,.waiting-card small{display:block}.waiting-card strong{font-size:12px}.waiting-card small{font-size:10px;opacity:.75;margin-top:3px}.projection-footer{position:absolute;z-index:9;bottom:0;left:0;right:0;height:42px;padding:0 4vw;display:flex;align-items:center;color:rgba(255,255,255,.84);background:rgba(25,69,78,.16);font-size:10px;letter-spacing:.1em}.projection-footer b{font-size:14px;color:white}.projection-footer .divider{width:1px;height:12px;background:rgba(255,255,255,.4);margin:0 13px}
 @media(max-width:900px){.topbar{height:66px}.step-pill{display:none}.studio-shell{grid-template-columns:1fr;padding-top:25px;gap:28px}.intro-panel h1 br{display:none}.intro-panel h1{font-size:43px}.hint-card{margin-top:25px}.canvas-stage{max-height:none}.tool-dock{flex-wrap:wrap}.bucket-button{margin-left:0}.island-main{width:55vw;height:48vw;right:4%;top:49%}.island-back{width:24vw;height:21vw;left:34%;top:39%}}@media(max-width:560px){.projection-link{font-size:0}.projection-link span{font-size:20px}.studio-shell{padding:18px 14px 36px}.intro-panel h1{font-size:37px}.canvas-panel{padding:13px;border-radius:21px}.tool-dock{gap:14px}.color-button{width:29px;height:29px}.action-row p{display:none}.fly-button{width:100%}.projection-header{height:64px}.live-pill{display:none}}
 .sky.night{background:linear-gradient(#07162d 0%,#173a59 48%,#3b3653 100%)}.sky.night:after{background:linear-gradient(transparent,rgba(24,22,47,.72))}.sky.night .sun{background:#f3f0d5;box-shadow:0 0 70px 25px rgba(224,235,255,.25);width:9vw;height:9vw;left:17%;top:17%}.sky.night .sun:after{content:"";position:absolute;width:88%;height:88%;left:28%;top:-8%;border-radius:50%;background:#0c2039}.sky.night .ambient-cloud{opacity:.16;background:rgba(201,226,242,.34)}.sky.night .island .land{background:linear-gradient(#315c55,#193f3c);border-bottom-color:#274d46}.sky.night .island .rock{background:linear-gradient(105deg,#46566a,#27394e 45%,#172838)}.sky.night .tree:before{background:#1f5147}.sky.night .waterfall{background:linear-gradient(90deg,rgba(190,230,255,.25),#69c9df,rgba(190,230,255,.3));box-shadow:0 0 22px rgba(97,211,235,.35)}.sky.night .windmill{filter:brightness(.7)}.sky.night .waiting-card{background:rgba(7,20,44,.42)}.star{position:absolute;z-index:0;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.85);animation:twinkle var(--twinkle,3s) ease-in-out infinite alternate;pointer-events:none}.sky:not(.night) .star{display:none}@keyframes twinkle{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1.45)}}
+
+/* 平板展場模式：鎖定單一畫面，避免觀眾誤滑或誤觸離開 */
+html{height:100%;overscroll-behavior:none}
+.studio-page{position:fixed;inset:0;width:100%;height:100dvh;min-height:0;overflow:hidden;overscroll-behavior:none;touch-action:none;user-select:none;-webkit-user-select:none}
+.studio-page button{touch-action:manipulation}
+.studio-page .topbar{height:60px;min-height:60px;padding:0 clamp(16px,3vw,44px);gap:20px;background:rgba(255,255,255,.48);backdrop-filter:blur(12px)}
+.studio-page .brand{cursor:default}
+.locked-pill{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.08em;color:#587487;padding:8px 12px;border:1px solid rgba(23,53,76,.12);border-radius:999px;background:rgba(255,255,255,.65)}
+.locked-pill span{color:#69b690;font-size:8px;box-shadow:0 0 0 4px rgba(105,182,144,.13);border-radius:50%}
+.studio-page .studio-shell{width:100%;height:calc(100dvh - 60px);max-width:none;margin:0;padding:12px clamp(14px,2.5vw,38px);grid-template-columns:minmax(220px, .55fr) minmax(0,1.85fr);gap:clamp(16px,2.5vw,36px);align-items:stretch;overflow:hidden}
+.studio-page .intro-panel{align-self:center;min-width:0}
+.studio-page .eyebrow{margin:8px 0 12px}
+.studio-page .intro-panel h1{font-size:clamp(38px,4.3vw,64px);margin-bottom:12px}
+.studio-page .lede{font-size:13px;line-height:1.7}
+.studio-page .hint-card{margin-top:16px;padding-top:14px}
+.studio-page .canvas-panel{height:100%;min-height:0;padding:12px 14px;border-radius:24px;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto auto;overflow:hidden}
+.studio-page .canvas-heading{min-height:34px;padding:0 3px 8px;gap:12px}
+.history-actions{display:flex;align-items:center;gap:7px}
+.history-button{height:31px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:0 10px;font-size:11px;font-weight:700;cursor:pointer;transition:.15s}
+.history-button span{font-size:17px;vertical-align:-1px;margin-right:2px}
+.history-button:hover:not(:disabled){border-color:#9db6b0;background:#edf7f3}
+.history-button:disabled{opacity:.36;cursor:default}
+.studio-page .text-button{height:31px;padding:0 9px;border:1px solid transparent;border-radius:9px}
+.studio-page .text-button:hover{background:#fff1ee;color:#c95847}
+.studio-page .canvas-stage{height:100%;width:auto;max-width:100%;max-height:none;min-height:0;aspect-ratio:1;justify-self:center;align-self:center;border-radius:16px;touch-action:none}
+.studio-page .canvas-stage canvas{touch-action:none}
+.studio-page .tool-dock{min-width:0;padding:9px 2px 3px;gap:12px;align-items:end;flex-wrap:nowrap}
+.studio-page .tool-label{margin-bottom:5px}
+.studio-page .palette{gap:6px}
+.studio-page .color-button{width:29px;height:29px}
+.studio-page .segmented button{width:38px;height:31px}
+.studio-page .tool-toggle{height:32px;padding:0 10px}
+.studio-page .safety-note{margin-top:5px;padding:7px 10px;border-radius:11px;align-items:center}
+.studio-page .safety-note>span{width:22px;height:22px;flex-basis:22px}
+.studio-page .safety-note strong{font-size:11px;margin:0}
+.studio-page .safety-note small{font-size:10px;line-height:1.35}
+.studio-page .action-row{margin-top:5px;padding:8px 2px 0;min-height:49px}
+.studio-page .fly-button{height:45px;min-width:176px;border-radius:12px}
+.studio-page .fly-button b{width:33px;height:33px}
+
+@media(max-width:1024px){
+  .studio-page .studio-shell{grid-template-columns:1fr;padding:10px 12px}
+  .studio-page .intro-panel{display:none}
+  .studio-page .canvas-panel{border-radius:20px}
+}
+@media(max-height:760px){
+  .studio-page .topbar{height:52px;min-height:52px}
+  .studio-page .studio-shell{height:calc(100dvh - 52px);padding-top:7px;padding-bottom:7px}
+  .studio-page .canvas-panel{padding-top:8px;padding-bottom:8px}
+  .studio-page .safety-note small{display:none}
+  .studio-page .canvas-note{display:none}
+  .studio-page .tool-dock{padding-top:6px}
+}
+@media(max-width:620px){
+  .studio-page .step-pill{display:none}
+  .studio-page .locked-pill{margin-left:auto}
+  .studio-page .history-button{font-size:0;width:34px;padding:0}
+  .studio-page .history-button span{font-size:18px;margin:0}
+  .studio-page .tool-dock{display:grid;grid-template-columns:1fr auto auto;gap:7px}
+  .studio-page .palette-group{grid-column:1/-1}
+  .studio-page .bucket-button{margin-left:0}
+  .studio-page .color-button{width:27px;height:27px}
+  .studio-page .action-row p{display:none}
+  .studio-page .fly-button{width:100%}
+}
